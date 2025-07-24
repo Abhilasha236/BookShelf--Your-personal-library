@@ -6,7 +6,7 @@ const showListBtn = document.getElementById("show-list-btn");
 
 const modal = new bootstrap.Modal(document.getElementById('bookModal'));
 let selectedIndex = null;
-const BASE_URL = 'http://localhost:5000/api';  // backend URL - change if needed
+const BASE_URL = "https://bookshelf-your-personal-library-backend.onrender.com";  // backend URL - change if needed
 
 // Load books from backend for logged in user
 async function loadMyBooks() {
