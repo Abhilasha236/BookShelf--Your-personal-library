@@ -18,7 +18,7 @@ async function loadMyBooks() {
     const token = localStorage.getItem('token');
     if (!token) throw new Error('Not logged in');
 
-    const res = await fetch(`${BASE_URL}/books/mybooks`, {
+    const res = await fetch(`${BASE_URL}/api/books/mybooks`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -102,7 +102,7 @@ document.getElementById("modalDelete").addEventListener("click", async () => {
     const book = books[selectedIndex];
     if (!book) throw new Error('Book not found');
 
-    const res = await fetch(`${BASE_URL}/books/delete/${book._id}`, {
+    const res = await fetch(`${BASE_URL}/api/books/delete/${book._id}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` }
     });
@@ -134,7 +134,7 @@ document.getElementById("modalSave").addEventListener("click", async () => {
       status: document.getElementById("modalStatus").value
     };
 
-    const res = await fetch(`${BASE_URL}/books/update/${book._id}`, {
+    const res = await fetch(`${BASE_URL}/api/books/update/${book._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ async function addToList(book) {
     if (!token) throw new Error('Not logged in');
 
     // Send POST request to add book
-    const res = await fetch(`${BASE_URL}/books/add`, {
+    const res = await fetch(`${BASE_URL}/api/books/add`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -311,7 +311,7 @@ async function loginUser() {
   }
 
   try {
-    const res = await fetch(`${BASE_URL}/login`, {
+    const res = await fetch(`${BASE_URL}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -358,7 +358,7 @@ async function signupUser() {
   }
 
   try {
-    const res = await fetch(`${BASE_URL}/signup`, {
+    const res = await fetch(`${BASE_URL}/api/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password }),
