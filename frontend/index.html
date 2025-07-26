@@ -8,128 +8,85 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="style.css" />
-  <!-- <style>
-    
-      </style> -->
+  <style>
+    /* Logout button fixed top-right */
+    #logoutBtn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 1050;
+      display: none;
+      min-width: 100px;
+    }
+
+    /* Auth container centered with white bg and some padding */
+    #authContainer {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 60px auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      color: #222;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    body {
+      background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding-bottom: 50px;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Logout button -->
   <button id="logoutBtn" class="btn btn-danger" onclick="logout()">Logout</button>
 
-  <div class="container py-5" id="staticBooks">
-    <div class="row">
-      <!-- Left: Static Books -->
-      <div class="col-lg-8">
-        <h1 class="mb-3 fw-bold text-dark">📚 BookShelf</h1>
-        <p class="text-muted mb-4 fs-5">Your personal reading companion. Add books, take notes, track your journey.</p>
+  <!-- Auth Section -->
+  <div id="authContainer">
+    <!-- Login Form -->
+    <div id="loginForm">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" class="form-control mb-2" placeholder="Email" />
+      <input type="password" id="loginPassword" class="form-control mb-2" placeholder="Password" />
+      <button onclick="loginUser()" class="btn btn-success w-100 mb-2">
+        Login
+      </button>
+      <p class="text-center" style="color: #222;">
+        New user?
+        <a href="#" onclick="toggleForms('signup'); return false">Signup here</a>
+      </p>
+    </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <!-- Book Cards -->
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL.jpg" class="card-img-top"
-                alt="Atomic Habits">
-              <div class="card-body">
-                <h5 class="card-title">Atomic Habits</h5>
-                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg" class="card-img-top"
-                alt="Deep Work">
-              <div class="card-body">
-                <h5 class="card-title">Deep Work</h5>
-                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg" class="card-img-top"
-                alt="The Alchemist">
-              <div class="card-body">
-                <h5 class="card-title">The Alchemist</h5>
-                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images-na.ssl-images-amazon.com/images/I/91uwocAMtSL.jpg" class="card-img-top"
-                alt="The Subtle Art">
-              <div class="card-body">
-                <h5 class="card-title">The Subtle Art</h5>
-                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images-na.ssl-images-amazon.com/images/I/81-QB7nDh4L.jpg" class="card-img-top"
-                alt="Rich Dad Poor Dad">
-              <div class="card-body">
-                <h5 class="card-title">Rich Dad Poor Dad</h5>
-                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images-na.ssl-images-amazon.com/images/I/81drfTT9ZfL.jpg" class="card-img-top"
-                alt="Ikigai">
-              <div class="card-body">
-                <h5 class="card-title">Ikigai</h5>
-                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Login/Signup Box (your existing one) -->
-      <div class="col-lg-4">
-        <!-- Keep your existing #authContainer here -->
-        <div id="authContainer" class="bg-white p-4 shadow rounded mt-4 mt-lg-0">
-          <div id="loginForm">
-            <h2>Login</h2>
-            <input type="email" id="loginEmail" class="form-control mb-2" placeholder="Email" />
-            <input type="password" id="loginPassword" class="form-control mb-2" placeholder="Password" />
-            <button onclick="loginUser()" class="btn btn-success w-100 mb-2">
-              Login
-            </button>
-            <p class="text-center" style="color: #222;">
-              New user?
-              <a href="#" onclick="toggleForms('signup'); return false">Signup here</a>
-            </p>
-          </div>
-
-          <!-- Signup Form -->
-          <div id="signupForm" style="display: none;">
-            <h2>Signup</h2>
-            <input type="text" id="signupName" class="form-control mb-2" placeholder="Name" />
-            <input type="email" id="signupEmail" class="form-control mb-2" placeholder="Email" />
-            <input type="password" id="signupPassword" class="form-control mb-2" placeholder="Password" />
-            <button onclick="signupUser()" class="btn btn-primary w-100 mb-2">
-              Signup
-            </button>
-            <p class="text-center" style="color: #222;">
-              Existing user?
-              <a href="#" onclick="toggleForms('login'); return false">Login here</a>
-            </p>
-          </div>
-        </div>
-      </div>
+    <!-- Signup Form -->
+    <div id="signupForm" style="display: none;">
+      <h2>Signup</h2>
+      <input type="text" id="signupName" class="form-control mb-2" placeholder="Name" />
+      <input type="email" id="signupEmail" class="form-control mb-2" placeholder="Email" />
+      <input type="password" id="signupPassword" class="form-control mb-2" placeholder="Password" />
+      <button onclick="signupUser()" class="btn btn-primary w-100 mb-2">
+        Signup
+      </button>
+      <p class="text-center" style="color: #222;">
+        Existing user?
+        <a href="#" onclick="toggleForms('login'); return false">Login here</a>
+      </p>
     </div>
   </div>
-
 
   <!-- BookNest App -->
   <div id="bookAppContent" style="display: none;">
@@ -204,13 +161,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-  <script src="app.js"></script>
-  <script>
-  function alertLogin() {
-    alert("Please login first to add this book.");
-  }
-</script>
 
+  <!-- Your existing app.js -->
+  <script src="app.js"></script>
 </body>
 
 </html>
