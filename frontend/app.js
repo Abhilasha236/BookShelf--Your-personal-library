@@ -387,6 +387,7 @@ function showCorrectView() {
   const token = localStorage.getItem('token');
   const name = localStorage.getItem('userName');
   if (token) {
+    document.getElementById("staticBooks").style.display = "none";
     document.getElementById('authContainer').style.display = 'none';
     document.getElementById('bookAppContent').style.display = 'block';
     document.getElementById('logoutBtn').style.display = 'block';
