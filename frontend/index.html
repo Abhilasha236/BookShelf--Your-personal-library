@@ -56,6 +56,96 @@
   <!-- Logout button -->
   <button id="logoutBtn" class="btn btn-danger" onclick="logout()">Logout</button>
 
+  <!-- 🔁 Put this inside your <body> tag, just ABOVE #authContainer -->
+
+  <div class="container mt-5" id="staticBooks">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="text-light mb-4">📚 Welcome to BookShelf - Your Personal Library</h1>
+        <p class="text-light mb-4">Discover and track your favorite books. Create your personal reading list and take
+          notes – all in one place!</p>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <!-- Book 1 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL.jpg" class="card-img-top"
+                alt="Atomic Habits">
+              <div class="card-body">
+                <h5 class="card-title">Atomic Habits</h5>
+                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
+              </div>
+            </div>
+          </div>
+          <!-- Book 2 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg" class="card-img-top"
+                alt="Deep Work">
+              <div class="card-body">
+                <h5 class="card-title">Deep Work</h5>
+                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
+              </div>
+            </div>
+          </div>
+          <!-- Book 3 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg" class="card-img-top"
+                alt="The Alchemist">
+              <div class="card-body">
+                <h5 class="card-title">The Alchemist</h5>
+                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
+              </div>
+            </div>
+          </div>
+          <!-- Book 4 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/91uwocAMtSL.jpg" class="card-img-top"
+                alt="The Subtle Art">
+              <div class="card-body">
+                <h5 class="card-title">The Subtle Art</h5>
+                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
+              </div>
+            </div>
+          </div>
+          <!-- Book 5 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/81-QB7nDh4L.jpg" class="card-img-top"
+                alt="Rich Dad Poor Dad">
+              <div class="card-body">
+                <h5 class="card-title">Rich Dad Poor Dad</h5>
+                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
+              </div>
+            </div>
+          </div>
+          <!-- Book 6 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/81drfTT9ZfL.jpg" class="card-img-top"
+                alt="Ikigai">
+              <div class="card-body">
+                <h5 class="card-title">Ikigai</h5>
+                <button class="btn btn-outline-primary w-100" onclick="alertLogin()">➕ Add to List</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Existing Auth Form on Right -->
+      <div class="col-md-4">
+        <!-- Move your #authContainer here -->
+        <div id="authContainer">
+          <!-- Keep your login/signup HTML as it is here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <!-- Auth Section -->
   <div id="authContainer">
     <!-- Login Form -->
