@@ -330,8 +330,7 @@ async function loginUser() {
       alert(data.message || 'Login failed. Try again or signup.');
     }
   } catch (err) {
-    alert('Server is waking up... please wait a few seconds and try again.');
-    alert('Try Refreshing');
+    alert('Server is waking up... please refresh and try again');
   }
 }
 
